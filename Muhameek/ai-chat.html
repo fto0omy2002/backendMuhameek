@@ -1,0 +1,154 @@
+<!--  idefination page  -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chat - Muhameek</title>
+
+
+<!--  design page  -->
+<style>
+:root{
+    --primary:#3E5C76;
+    --secondary:#6CA6CD;
+    --highlight:#A3C1D9;
+    --bg:#F2F5F7;
+    --card:#ffffff;
+    --text:#0b2140;
+    --rounded:12px;
+    --shadow:0 6px 18px rgba(11,33,64,0.08);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Tahoma,Arial,sans-serif;}
+body{
+    background:var(--bg);
+    color:var(--text);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    padding:20px;
+}
+
+.chat-container{
+    max-width:500px;
+    width:100%;
+    background:var(--card);
+    border-radius:var(--rounded);
+    box-shadow:var(--shadow);
+    padding:20px;
+}
+
+.chat-container img.logo{
+    display:block;
+    margin:0 auto 15px auto;
+    width:80px;
+    height:80px;
+    object-fit:contain;
+}
+
+.chat-header{
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.chat-header h2{
+    color:var(--primary);
+    margin-bottom:5px;
+}
+
+.chat-header p{
+    font-size:14px;
+    opacity:0.85;
+}
+
+#vf-chat{
+    height:350px;
+    border:1px solid #ccc;
+    border-radius:var(--rounded);
+    overflow:hidden;
+    margin-bottom:15px;
+}
+
+.file-input-container{
+    margin-bottom:10px;
+}
+
+.file-input-container input[type="file"]{
+    width:100%;
+    border:1px solid #ccc;
+    padding:8px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.restart-btn{
+    display:block;
+    margin:20px auto 0 auto;
+    padding:10px 20px;
+    background-color:var(--highlight);
+    color:var(--text);
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.restart-btn:hover{
+    background-color:var(--secondary);
+    color:white;
+}
+</style>
+</head>
+
+
+
+<body>
+
+ <!-- page contenent -->
+<div class="chat-container">
+    <img src="pic/logo.png" alt="Muhameek Logo" class="logo">
+
+    <!-- ✅ Voiceflow Chat Section just squere -->
+    <div id="vf-chat"></div>
+
+    <!-- File Upload Section (below chat) -->
+    <div class="file-input-container">
+        <input type="file" id="pdfFile" accept=".pdf">
+    </div>
+
+</div>
+
+
+<!-- restart page (refresh) -->
+<script>
+function restartChat(){
+    window.location.reload();
+}
+</script>
+
+
+<!-- ✅ Voiceflow Embed -->
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '68ea4b02a086e3ec827f48af' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          render: {
+            mode: 'embedded',
+            target: document.getElementById('vf-chat')
+          }
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+      v.type = "text/javascript"; 
+      s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+
+</body>
+</html>
